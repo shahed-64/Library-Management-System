@@ -30,14 +30,25 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        // validate
         $request -> validate([
-            'title' => "required"
+            'title'         => "required",
+            'author'        => "required",
+            "isbn"          => "required|unique:books",
+            "cover"   => "required|image|mimes:jpg,jpeg,png,gif|max:2048",
         ]);
+
+
+        // upload student photo
+        $fileName = time().'.'.$request->file('cover')->getClientOriginalExtension();
+        $request->file('cover')->move(public_path('media/book'), $fileName);
+        $path = $fileName;
+
         //data store
       DB::table('books') -> insert([
         "title"     => $request -> title,
         "author"    => $request -> author,
-        "cover"     => $request -> cover,
+        "cover"     => $path,
         "isbn"      => $request -> isbn,
         "copy"      => $request -> copies,
         "available_copy" => $request-> copies,

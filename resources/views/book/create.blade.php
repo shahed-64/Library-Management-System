@@ -3,11 +3,15 @@
 @section('main')
                 <div class="page-wrapper">
                 <div class="content container-fluid">
-				
+
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row">
 							<div class="col-sm-12">
+
+                                @if(Session::has('success'))
+                                    {{ Session::get('success'); }}
+                                @endif
                                 <div class="row">
 						<div class="col-xl-12 d-flex">
 							<div class="card flex-fill">
@@ -29,7 +33,7 @@
 												<input name="author" type="text" class="form-control">
 											</div>
 										</div>
-										
+
 										<div class="form-group row">
 											<label class="col-lg-3 col-form-label">ISBN</label>
 											<div class="col-lg-9">
@@ -56,14 +60,14 @@
 							</div>
 						</div>
 
-                        
+
 							</div>
 						</div>
 					</div>
 					<!-- /Page Header -->
-					
 
-					
-				</div>			
+
+
+				</div>
 			</div>
 @endsection
