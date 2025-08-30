@@ -41,7 +41,7 @@ class StudentController extends Controller
             'name'           => "required",
             'email'          => "required",
             "student_id"    => "required",
-            "phone"          => "required",
+            "phone"          => "required | starts_with:01",
             "photo"   => "required|image|mimes:jpg,jpeg,png,gif|max:2048",
         ]);
 
