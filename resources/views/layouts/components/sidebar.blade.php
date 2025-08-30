@@ -18,10 +18,10 @@
 								<a href="components.html"><i class="fe fe-vector"></i> <span>Borrowings</span></a>
 							</li>
 							<li class="submenu">
-								<a href="#"><i class="fe fe-layout"></i> <span> Students </span> <span class="menu-arrow"></span></a>
+								<a href="{{ url('/student.index') }}"><i class="fe fe-layout"></i> <span> Students </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="form-basic-inputs.html">All Students </a></li>
-									<li><a href="form-input-groups.html">Add New Student </a></li>
+									<li><a href="{{ route('student.index') }}">All Students </a></li>
+									<li><a href="{{ route('student.create') }}">Add New Student </a></li>
 								</ul>
 							</li>
                             <li class="submenu">

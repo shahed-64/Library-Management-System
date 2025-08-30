@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -12,7 +13,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $student = DB::table('students') -> get();
+       return view('student.index', [
+        'students'  => $student,
+       ]);
+        
     }
 
     /**
@@ -21,6 +26,7 @@ class StudentController extends Controller
     public function create()
     {
         //
+          return view('student.create');
     }
 
     /**
@@ -29,7 +35,36 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        
+        // validate
+        $request -> validate([
+            'name'           => "required",
+            'email'          => "required",
+            "student_id"    => "required",
+            "phone"          => "required",
+            "photo"   => "required|image|mimes:jpg,jpeg,png,gif|max:2048",
+        ]);
+
+
+        // upload student photo
+        $fileName = time().'.'.$request->file('photo')->getClientOriginalExtension();
+        $request->file('photo')->move(public_path('media/book'), $fileName);
+        $path = $fileName;
+
+        //data store
+      DB::table('students') -> insert([
+        "name"            => $request -> name,
+        "email"           => $request -> email,
+        "phone"           => $request -> phone, 
+        "student_id"      => $request -> student_id, 
+        "photo"           => $path,
+        "created_at"      => now()
+      ]);
+        // return
+         return back() -> with ("success", "Student created successful");
     }
+
+    
 
     /**
      * Display the specified resource.
