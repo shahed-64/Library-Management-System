@@ -20,12 +20,11 @@
         <link rel="stylesheet" href="{{ asset('assets/css/feathericon.min.css') }}">
 		
 		<link rel="stylesheet" href="{{ asset('assets/plugins/morris/morris.css') }}">
-<<<<<<< HEAD
+
 
 		<!-- Datatables CSS -->
 		<link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
-=======
->>>>>>> c527a022d7619509923a84e3a1281a746ee5a6ba
+
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -69,13 +68,11 @@
 		<script src="{{ asset('assets/plugins/raphael/raphael.min.js') }}"></script>    
 		<script src="{{ asset('assets/plugins/morris/morris.min.js') }}"></script>  
 		<script src="{{ asset('assets/js/chart.morris.js') }}"></script>
-<<<<<<< HEAD
+
 				<!-- Datatables JS -->
 		<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 		<script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
-=======
-		
->>>>>>> c527a022d7619509923a84e3a1281a746ee5a6ba
+
 		<!-- Custom JS -->
 		<script  src="{{ asset('assets/js/script.js') }}"></script>
 		
